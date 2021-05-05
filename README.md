@@ -5,6 +5,5 @@ Dependency properties:
 
 Spacing : double  = Spacing between wrapping marquee
 
-Text : string = text to display
-
-UserControl so you can use FontSize/FontFamily etc to modify how the text looks.
+First : FrameworkElement = "Left" control
+Second : FrameworkElement = Control that follows "Left", spaced out by "Spacing"

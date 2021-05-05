@@ -8,8 +8,8 @@ namespace UWPMarquee
     public sealed partial class MarqueeControl : UserControl
     {
         public static readonly DependencyProperty SpacingProperty = DependencyProperty.Register("Spacing", typeof(double), typeof(MarqueeControl), new PropertyMetadata(default(double)));
-        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(MarqueeControl), new PropertyMetadata(default(string)));
-
+        public static readonly DependencyProperty SecondProperty = DependencyProperty.Register("Second", typeof(TextBlock), typeof(MarqueeControl), new PropertyMetadata(default(TextBlock)));
+        public static readonly DependencyProperty FirstProperty = DependencyProperty.Register("First", typeof(TextBlock), typeof(MarqueeControl), new PropertyMetadata(default(TextBlock)));
         public MarqueeControl()
         {
             this.InitializeComponent();
@@ -17,14 +17,20 @@ namespace UWPMarquee
 
         public double Spacing
         {
-            get { return (double) GetValue(SpacingProperty); }
+            get { return (double)GetValue(SpacingProperty); }
             set { SetValue(SpacingProperty, value); }
         }
 
-        public string Text
+        public TextBlock Second
         {
-            get { return (string) GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
+            get { return (TextBlock)GetValue(SecondProperty); }
+            set { SetValue(SecondProperty, value); }
+        }
+
+        public TextBlock First
+        {
+            get { return (TextBlock)GetValue(FirstProperty); }
+            set { SetValue(FirstProperty, value); }
         }
 
         private void Stack_OnSizeChanged(object sender, SizeChangedEventArgs e)

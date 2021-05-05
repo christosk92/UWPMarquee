@@ -7,7 +7,6 @@
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
-
     <Grid SizeChanged="Stack_OnSizeChanged">
         <StackPanel
             x:Name="stack"
@@ -33,24 +32,24 @@
                 x:Name="canvas"
                 Width="{Binding ElementName=stack, Path=ActualWidth}"
                 HorizontalAlignment="Stretch">
-                <TextBlock
+                <ContentControl
                     x:Name="txtKron"
                     Canvas.Left="0"
-                    FontSize="{x:Bind FontSize, Mode=OneWay}"
-                    Text="{x:Bind Text, Mode=OneWay}">
-                    <TextBlock.RenderTransform>
+                    Content="{x:Bind First, Mode=OneWay}">
+                    <ContentControl.RenderTransform>
                         <TranslateTransform x:Name="transferCurreny" X="0" />
-                    </TextBlock.RenderTransform>
-                </TextBlock>
-                <TextBlock
+                    </ContentControl.RenderTransform>
+                </ContentControl>
+                <ContentControl
                     x:Name="txtKron2"
-                    FontSize="{x:Bind FontSize, Mode=OneWay}"
-                    Text="{Binding Text, ElementName=txtKron}">
-                    <TextBlock.RenderTransform>
+                    Canvas.Left="0"
+                    Content="{x:Bind Second, Mode=OneWay}">
+                    <ContentControl.RenderTransform>
                         <TranslateTransform x:Name="transferCurreny2" X="0" />
-                    </TextBlock.RenderTransform>
-                </TextBlock>
+                    </ContentControl.RenderTransform>
+                </ContentControl>
             </Canvas>
         </StackPanel>
     </Grid>
 </UserControl>
+
