@@ -1,0 +1,56 @@
+﻿<UserControl
+    x:Class="UWPMarquee.MarqueeControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Grid SizeChanged="Stack_OnSizeChanged">
+        <StackPanel
+            x:Name="stack"
+            Orientation="Horizontal"
+            SizeChanged="Stack_OnSizeChanged">
+            <StackPanel.Resources>
+                <Storyboard x:Key="slide" x:Name="slide">
+                    <DoubleAnimation
+                        x:Name="SbFr"
+                        RepeatBehavior="Forever"
+                        Storyboard.TargetName="transferCurreny"
+                        Storyboard.TargetProperty="X"
+                        Duration="00:00:10" />
+                    <DoubleAnimation
+                        x:Name="SbFr2"
+                        RepeatBehavior="Forever"
+                        Storyboard.TargetName="transferCurreny2"
+                        Storyboard.TargetProperty="X"
+                        Duration="00:00:10" />
+                </Storyboard>
+            </StackPanel.Resources>
+            <Canvas
+                x:Name="canvas"
+                Width="{Binding ElementName=stack, Path=ActualWidth}"
+                HorizontalAlignment="Stretch">
+                <TextBlock
+                    x:Name="txtKron"
+                    Canvas.Left="0"
+                    FontSize="{x:Bind FontSize, Mode=OneWay}"
+                    Text="{x:Bind Text, Mode=OneWay}">
+                    <TextBlock.RenderTransform>
+                        <TranslateTransform x:Name="transferCurreny" X="0" />
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <TextBlock
+                    x:Name="txtKron2"
+                    FontSize="{x:Bind FontSize, Mode=OneWay}"
+                    Text="{Binding Text, ElementName=txtKron}">
+                    <TextBlock.RenderTransform>
+                        <TranslateTransform x:Name="transferCurreny2" X="0" />
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </Canvas>
+        </StackPanel>
+    </Grid>
+</UserControl>
