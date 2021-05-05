@@ -35,7 +35,7 @@
                 <ContentControl
                     x:Name="txtKron"
                     Canvas.Left="0"
-                    Content="{x:Bind First, Mode=OneWay}"
+                    Content="{x:Bind Mode=OneWay, Path=First}"
                     SizeChanged="Stack_OnSizeChanged">
                     <ContentControl.RenderTransform>
                         <TranslateTransform x:Name="transferCurreny" X="0" />
@@ -44,7 +44,7 @@
                 <ContentControl
                     x:Name="txtKron2"
                     Canvas.Left="0"
-                    Content="{x:Bind Second, Mode=OneWay}"
+                    Content="{x:Bind Mode=OneWay, Path=Second}"
                     SizeChanged="Stack_OnSizeChanged">
                     <ContentControl.RenderTransform>
                         <TranslateTransform x:Name="transferCurreny2" X="0" />
