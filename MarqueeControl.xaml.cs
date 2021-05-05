@@ -8,8 +8,10 @@ namespace UWPMarquee
     public sealed partial class MarqueeControl : UserControl
     {
         public static readonly DependencyProperty SpacingProperty = DependencyProperty.Register("Spacing", typeof(double), typeof(MarqueeControl), new PropertyMetadata(default(double)));
-        public static readonly DependencyProperty SecondProperty = DependencyProperty.Register("Second", typeof(TextBlock), typeof(MarqueeControl), new PropertyMetadata(default(TextBlock)));
-        public static readonly DependencyProperty FirstProperty = DependencyProperty.Register("First", typeof(TextBlock), typeof(MarqueeControl), new PropertyMetadata(default(TextBlock)));
+        public static readonly DependencyProperty SecondProperty = 
+            DependencyProperty.Register("Second", typeof(FrameworkElement), typeof(MarqueeControl), new PropertyMetadata(default(FrameworkElement)));
+        public static readonly DependencyProperty FirstProperty = 
+            DependencyProperty.Register("First", typeof(FrameworkElement), typeof(MarqueeControl), new PropertyMetadata(default(FrameworkElement)));
         public MarqueeControl()
         {
             this.InitializeComponent();
@@ -21,15 +23,15 @@ namespace UWPMarquee
             set { SetValue(SpacingProperty, value); }
         }
 
-        public TextBlock Second
+        public FrameworkElement Second
         {
-            get { return (TextBlock)GetValue(SecondProperty); }
+            get { return (FrameworkElement)GetValue(SecondProperty); }
             set { SetValue(SecondProperty, value); }
         }
 
-        public TextBlock First
+        public FrameworkElement First
         {
-            get { return (TextBlock)GetValue(FirstProperty); }
+            get { return (FrameworkElement)GetValue(FirstProperty); }
             set { SetValue(FirstProperty, value); }
         }
 
